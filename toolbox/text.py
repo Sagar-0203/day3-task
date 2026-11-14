@@ -1,3 +1,4 @@
+
 """Text helpers. The worked example every contribution is modelled on."""
 
 
@@ -29,3 +30,14 @@ def truncate(text, limit, suffix="..."):
     if len(text) <= limit:
         return text
     return text[:limit - len(suffix)] + suffix
+
+
+def remove_extra_spaces(text):
+    """Remove extra whitespace from text.
+
+    >>> remove_extra_spaces("  hello   world  ")
+    'hello world'
+    """
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    return " ".join(text.split())
